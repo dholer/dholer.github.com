@@ -10,7 +10,7 @@ Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.ht
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
 ## Update Author Attributes
-
+中
 In `_config.yml` remember to specify your own data:
     
     title : My Blog =)
