@@ -30,6 +30,20 @@ section {
   padding-top: 60px;
 }
 
+
+
+
+
+
+/* footer
+-------------------------------------------------- */
+footer{
+    padding-top:20px;
+}
+
+
+
+
 /* Faded out hr */
 hr.soften {
   height: 1px;
@@ -826,4 +840,5 @@ form.well {
   }
 
 }
+
 
