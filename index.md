@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hello World!
+title: 首页
 ---
 {% include JB/setup %}
 <ul class="posts">
@@ -8,5 +8,3 @@ title: Hello World!
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
-
-##test title
