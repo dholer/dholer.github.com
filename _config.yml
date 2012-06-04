@@ -6,7 +6,7 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
 pygments: true
 
-title : 码农时代
+title : 折腾笔记
 tagline: Site Tagline
 author :
   name : Joseph
