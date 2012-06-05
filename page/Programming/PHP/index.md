@@ -26,16 +26,43 @@ Windows 下的 PHP 主要有两种执行方式： **ISAPI** 和 **FastCGI** 。
 
 基本上， FastCGI 是一个在单一步骤中管理多重 CGI 请求的程序，为每个请求减少了许多程序指令。没有 FastCGI 的话，每当用户请求某一服务时都会导致 Web 服务器打开 一个新的能控制和执行这项服务的程序，然后关闭它。有了 FastCGI的话，一个步骤的耗费会被所有当前正处理的请求所分担。与 CGI 不同，有了 FastCGI 的话，每个步骤是独立于 Web 服务器运行的， 这样就提供了更多的安全。 FastCGI 是独立代码的。它的版权属于 Open Market 公司，该公司提供 FastCGI的免费使用并且将其作为一个公开标准。 FastCGI 提供了唯一一个可以跨平台和在任何 Web 服务器上使用的 无知识产权的方法。
 
+###PHP 安装
+- [Win 7 下安装Apache PHP](/PHP/2012/06/05/php-win7-install-apache-php/)
 
+###常用代码
+- [常用代码](/PHP/2015/06/05/php-useful-code-source/)
 
 
 
 ###空间资源
-
+- [php.ini 说明](/PHP/2012/06/05/php.ini-instruction/)
 - [PHP Cloud](https://www.phpfog.com/)
+- [雅黑PHP探针](http://www.yahei.net/)
 
 ###集成开发环境
 
 - [CoreAMP](http://code.google.com/p/coreamp/)
+
+###单元测试
+- [Unit Tests](http://pkp.sfu.ca/wiki/index.php/Unit_Tests)
+- [Configure_Eclipse_for_PHPUnit](http://pkp.sfu.ca/wiki/index.php/Configure_Eclipse_for_PHPUnit)
+
+
+###Xdebug
+
+
+	http://xdebug.org/	
+	http://xdebug.org/wizard.php	
+	php -i > phpinfo.txt
+
+- [Eclipse用XDebug调试PHP程序](http://www.cnblogs.com/yeer/archive/2010/04/07/1706407.html)
+
+###框架
+
+[phpactiverecord](http://www.phpactiverecord.org/)
+
+
+
+
 
 
