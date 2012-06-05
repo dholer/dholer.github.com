@@ -39,7 +39,7 @@ Windows 下的 PHP 主要有两种执行方式： **ISAPI** 和 **FastCGI** 。
 - [Introduction to PHP PDO](http://www.phpro.org/tutorials/Introduction-to-PHP-PDO.html)
 - [PHP Cloud](https://www.phpfog.com/)
 - [雅黑PHP探针](http://www.yahei.net/)
-
+- [PHP开发者常犯的10个MySQL错误](/PHP/2012/06/05/php-mistake-top-ten/)
 ###集成开发环境
 
 - [CoreAMP](http://code.google.com/p/coreamp/)

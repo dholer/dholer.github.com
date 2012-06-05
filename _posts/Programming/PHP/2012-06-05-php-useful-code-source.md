@@ -85,6 +85,38 @@ htmlspecialchars() 函数把一些预定义的字符转换为 HTML 实体。
 	}
 
 
+###objective create
+
+	$obj = new stdClass();
+
+###Tells whether the filename is writable
+	
+	is_writable($filename) 
+	
+###Outputs a file
+
+	readfile($filename, $use_include_path, $context) 
+	
+###header usage
+
+	header($_SERVER['SERVER_PROTOCOL'] . ' 503 Service Unavailable');
+	echo('Fatal error: $CFG->dataroot is not specified in config.php! Exiting.'."\n");
+	
+	--------------------------------------------
+	HTTP/1.1 503 Service Unavailable
+	Fatal error: $CFG->dataroot is not specified in config.php! Exiting
+	++++++++++++++++++++++++++++++++
+	
+	header('Content-type: text/html; charset=utf-8');
+	/// Headers to make it not cacheable and json
+	header('Cache-Control: no-store, no-cache, must-revalidate');
+	header('Cache-Control: post-check=0, pre-check=0', false);
+	header('Pragma: no-cache');
+	header('Expires: Mon, 20 Aug 1969 09:23:00 GMT');
+	header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+	header('Accept-Ranges: none');
+
+
 ###网上资料
 
 - [WordPress 样式标签云探究 Case Study: WordPress Flash Tag Cloud](http://riashanghai.com/zh-hant/node/72)
