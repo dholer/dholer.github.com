@@ -36,6 +36,7 @@ Windows 下的 PHP 主要有两种执行方式： **ISAPI** 和 **FastCGI** 。
 
 ###空间资源
 - [php.ini 说明](/PHP/2012/06/05/php.ini-instruction/)
+- [Introduction to PHP PDO](http://www.phpro.org/tutorials/Introduction-to-PHP-PDO.html)
 - [PHP Cloud](https://www.phpfog.com/)
 - [雅黑PHP探针](http://www.yahei.net/)
 
@@ -48,18 +49,61 @@ Windows 下的 PHP 主要有两种执行方式： **ISAPI** 和 **FastCGI** 。
 - [Configure_Eclipse_for_PHPUnit](http://pkp.sfu.ca/wiki/index.php/Configure_Eclipse_for_PHPUnit)
 
 
-###Xdebug
+###debug
 
+- [os-php-eclipse-pdt-debug](http://www.eclipse.org/pdt/articles/debugger/os-php-eclipse-pdt-debug-pdf.pdf)
+
+####wincache
+
+配置要求：
+此扩展只能在以下的配置上运行：
+Windows 版本：
+
+	• Windows XP SP3 with IIS 5.1 and FastCGI Extension
+	• Windows Server 2003 with IIS 6.0 and FastCGI Extension
+	• Windows Vista SP1 with IIS 7.0 and FastCGI Module
+	• Windows Server 2008 with IIS 7.0 and FastCGI Module
+	• Windows 7 with IIS 7 and FastCGI Module
+	• Windows Server 2008 R2 with IIS 7.0 and FastCGI Module
+	
+PHP版本:
+
+	• PHP 5.2.X, Non-thread-safe build
+	• PHP 5.3 X86, Non-thread-safe VC9 build
+	
+注意：此扩展只能在服务器通过FastCGI运行PHP的情况下使用，PHP的版本必须是NTS(非线程安全)的。
+
+可以从官方网页http://www.iis.net/extensions/WinCacheForPHP直接用IIS的Web安装程序在线安装Wincache。
+
+也可以直接从http://sourceforge.net/projects/wincache/files/ 下载安装文件。
+
+####xdebug
 
 	http://xdebug.org/	
 	http://xdebug.org/wizard.php	
 	php -i > phpinfo.txt
+php.ino
+	
+	zend_extension_ts="path/xdebug/php_xdebug-2.1.0-5.2-vc6.dll" 
+	[Xdebug] 
+	xdebug.profiler_enable=on 
+	xdebug.trace_output_dir="path\xdebug" 
+	xdebug.profiler_output_dir="path\xdebug" 
+	xdebug.remote_enable=on 
+	xdebug.remote_handler=dbgp 
+	xdebug.remote_host=localhost 
+	xdebug.remote_port=9000 
 
-- [Eclipse用XDebug调试PHP程序](http://www.cnblogs.com/yeer/archive/2010/04/07/1706407.html)
+[Eclipse用XDebug调试PHP程序](http://www.cnblogs.com/yeer/archive/2010/04/07/1706407.html)
 
 ###框架
 
 [phpactiverecord](http://www.phpactiverecord.org/)
+
+
+###php加速
+
+- [XCache](http://xcache.lighttpd.net/)
 
 
 
