@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 首页_
+title: 首_页
 ---
 {% include JB/setup %}
 <ul class="posts">
