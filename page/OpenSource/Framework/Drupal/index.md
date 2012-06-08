@@ -3,6 +3,31 @@ layout: page
 title: Drupal
 ---
 
+###drupal7 transaction
+
+	// The transaction opens here.
+	  $txn = db_transaction();
+	
+	  try {
+	    $id = db_insert('example')
+	      ->fields(array(
+	        'field1' => 'mystring',
+	        'field2' => 5,
+	      ))
+	      ->execute();
+	
+	    my_other_function($id);
+	
+	    return $id;
+	  }
+	  catch (Exception $e) {
+	    // Something went wrong somewhere, so roll back now.
+	    $txn->rollback();
+	    // Log the exception to watchdog.
+	    watchdog_exception('type', $e);
+	  }
+
+
 ###drupal db options
 
 	ini_set('display_errors','1'); 
