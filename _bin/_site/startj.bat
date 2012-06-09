@@ -1,2 +1,0 @@
-sh.exe jekyll.sh
-
