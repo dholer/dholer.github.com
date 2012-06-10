@@ -15,4 +15,3 @@ ctl+shift+c open shell
 
 ctl+shift+e open explore
 
-d
