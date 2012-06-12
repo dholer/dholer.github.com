@@ -64,4 +64,24 @@ title: Drupal
 	  ->condition('uid', 5)
 	  ->condition('created', REQUEST_TIME - 3600, '<')
 	  ->execute();
+	  
+	$result = db_select('node', 'n')
+	    ->fields('n')
+	    ->condition('nid', $node->nid,'=')
+	    ->condition('status', 0,'>')
+	    ->condition('uid', array(1,5,7),'IN')
+	    ->execute()
+	    ->fetchAssoc();
+	    
+	$query = db_select('node', 'n');
+    $query->join('users', 'u', 'n.uid = u.uid'); //JOIN node with users
+    $query->groupBy('u.uid');//GROUP BY user ID
+    $query->fields('n',array('title','created'))//SELECT the fields from node
+    ->fields('u',array('name'))//SELECT the fields from user
+    ->orderBy('created', 'DESC')//ORDER BY created
+    ->range(0,2);//LIMIT to 2 records
+    $result = $query->execute();
+    while($record = $result->fetchAssoc()) {
+        print_r($record);
+    }
 

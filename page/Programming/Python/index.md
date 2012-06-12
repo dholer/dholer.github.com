@@ -129,7 +129,7 @@ sshunter.exe [url]www.fxxk.com[/url] 22 root
 
 
 ###python下的MySQLdb使用 
-
+[MySQLdb](http://mysql-python.sourceforge.net/MySQLdb.html)
 	# -*- coding: utf-8 -*-     
 	#mysqldb    
 	import time, MySQLdb    
@@ -143,7 +143,7 @@ sshunter.exe [url]www.fxxk.com[/url] 22 root
 	param = ("aaa",int(time.time()))    
 	n = cursor.execute(sql,param) 
 	conn.commit()
-	conn.roolback()
+	conn.rollback()
 	cursor.lastrowid
 	conn.insert_id()
 	print n    
