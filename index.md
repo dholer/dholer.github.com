@@ -2,6 +2,7 @@
 layout: page
 title: 首页
 ---
+
 {% include JB/setup %}
 <ul class="posts">
   {% for post in site.posts %}
