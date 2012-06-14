@@ -4,9 +4,6 @@ title: Objective-c
 ---
 
 
-
-
-
 ###教程
 - [iOS开发](http://my.oschina.net/plumsoft/blog?catalog=145903)
 - [Xcode4实现基于Webservice用户登录的iphone程序](http://www.cnblogs.com/fengxiang/archive/2011/05/15/2045719.html)
