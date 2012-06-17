@@ -3,6 +3,11 @@ layout: page
 title: Drupal
 ---
 
+###资料
+-[Boost模块-用drupal来建大网站的得力助手](http://drupalgarden.cn/content/boostmo-kuai-yong-drupallai-jian-da-wang-zhan-de-de-li-zhu-shou)
+
+
+
 ###drupal7 transaction
 
 	// The transaction opens here.
