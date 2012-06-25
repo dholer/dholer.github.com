@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/css/style.css">
+
+    <link rel="stylesheet" href="{{ ASSET_PATH }}/js/google-code-prettify/prettify.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!--  fav and touch icons -->
+    <link rel="shortcut icon" href="{{ ASSET_PATH }}/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ ASSET_PATH }}/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ ASSET_PATH }}/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ ASSET_PATH }}/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="{{ ASSET_PATH }}/ico/apple-touch-icon-57-precomposed.png">
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+    <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+        <div class="nav-collapse">
+	    <ul class="nav"><!--
+	    {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include JB/pages_list %}
+	    -->
+	    
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">程序设计<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/Programming">程序设计</a></li>		
+			<li class="divider"></li>
+			<li class="nav-header">Backend</li>
+			<li><a href="/page/Programming/PHP">PHP</a></li>
+			<li><a href="/page/Programming/Python">Python</a></li>
+			<li><a href="/page/Programming/Ruby">Ruby</a></li>
+			<li><a href="/page/Programming">Nodejs</a></li>
+			<li><a href="/page/Programming/Java">Java</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">Javascript</li>
+			<li><a href="/page/Programming/Javascript">Native js</a></li>
+			<li><a href="/page/Programming/Jquery">JQUERY</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/Programming/BASH">BASH</a></li>
+		    </ul>
+		    </li>
+
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">计算机技术<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/Computer">计算机技术</a></li>
+			<li class="divider"></li>			
+			<li class="nav-header">网络技术</li>
+			<li class="divider"></li>
+			<li><a href="/page/Computer/Networking/HTTP">HTTP</a></li>
+			<li><a href="/page/Computer/Networking/LoadBalance">负载均衡</a></li>
+			<li><a href="/page/Computer/Networking/MasterSlave">读写分离</a></li>
+			<li><a href="/page/Computer/Networking/SSO">单点登陆</a></li>
+			<li><a href="/page/Computer/Networking/Hacks">HACKS</a></li>
+			<li><a href="/page/Computer/Networking/SAE">SAE</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/Computer/Windows">Windows</a></li>
+			<li><a href="/page/Computer/MAC">Mac</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/Computer/Eclipse">Eclipse</a></li>
+			<li><a href="/page/Computer/Photoshop">Photoshop</a></li>
+			<li><a href="/page/Computer/Git">GIT</a></li>
+		    </ul>
+		    </li>
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">GUI<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/GUI">GUI</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">Mobile</li>
+			<li><a href="/page/GUI/Mobile/Objective-c">Objective-c</a></li>
+			<li><a href="/page/GUI/Mobile/Android">Android</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">C++</li>
+			<li><a href="/page/GUI/CPP/QT4">QT</a></li>
+			<li><a href="/page/GUI/CPP/PyQT4">PyQT4</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">Front</li>
+			<li><a href="/page/GUI/Fronts/HTML">HTML</a></li>
+			<li><a href="/page/GUI/Fronts/CSS">CSS</a></li>
+		    </ul>
+		</li>
+
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Server<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/Server">Server</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/Server/FreeBSD">FreeBSD</a></li>
+			<li class="nav-header">Linux</li>
+			<li><a href="/page/Server/Linux/CentOS">centos</a></li>
+			<li><a href="/page/Server/Linux/FreeBSD">fedora</a></li>
+			<li><a href="/page/Server/Linux/Ubuntu">ubuntu</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">HTTPD</li>
+			<li><a href="/page/Server/HTTPD/Apache">Apache</a></li>
+			<li><a href="/page/Server/HTTPD/Nginx">Nginx</a></li>
+			<li><a href="/page/Server/HTTPD/Squid">Squid</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">DB</li>
+			<li><a href="/page/Server/DB/MySQL">MySQL</a></li>
+			<li><a href="/page/Server/DB/MangoDB">Mangodb</a></li>
+			<li><a href="/page/Server/DB/Redis">Redis</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/Server/RabbitMQ">RabbitMQ</a></li>
+		    </ul>
+		</li>
+
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Open Source<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/OpenSource">Open Source</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">CA</li>
+			<li><a href="/page/OpenSource/CA/openCA">openCA</a></li>
+			<li><a href="/page/OpenSource/CA/openSSL">openSSL</a></li>
+			<li><a href="/page/OpenSource/CA/openLDAP">openLDAP</a></li>
+			<li class="divider"></li>
+			<li class="nav-header">Framework</li>
+			<li><a href="/page/OpenSource/Framework/Drupal">Drupal</a></li>
+			<li><a href="/page/OpenSource/Framework/Wordpress">Wordpress</a></li>
+			<li><a href="/page/OpenSource/Framework/Moodle">Moodle</a></li>			
+			<li class="divider"></li>
+			<li><a href="/page/OpenSource/Framework/YII">YII</a></li>
+			<li><a href="/page/OpenSource/Framework/ZEND">Zend</a></li>
+			<li><a href="/page/OpenSource/Framework/CI">CI</a></li>
+			<li class="divider"></li>
+			<li><a href="/page/OpenSource/Framework/Django">Django</a></li>
+		    </ul>
+		</li>
+
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">MyProjects<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/page/MyProjects">MyProjects</a></li>
+			<li class="divider"></li>		
+		    </ul>
+		</li>
+		<li class="dropdown">
+		    <a href="#" class="dropdown-toggle" data-toggle="dropdown">学习札记<b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+		    <li class="divider"></li>
+		    <li><a href="/page/Study/">学习札记</a></li>			
+			<li class="divider"></li>
+			<li><a href="/page/Study/netArticle">网文荟萃</a></li>
+			<li><a href="/page/Study/Collect">网址收藏</a></li>
+			<li><a href="/page/Study/English">英语学习</a></li>
+			<li><a href="/page/Study/BitByBit">点点滴滴</a></li>
+			<li class="divider"></li>		
+		    </ul>
+		</li>
+		<li><a href="/page/Vim">Vim</a></li>
+		<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">>>><b class="caret"></b></a>
+		    <ul class="dropdown-menu">
+			<li class="divider"></li>
+			<li><a href="/pages.html">Pages</a></li>
+			<li><a href="/archive.html">Archive</a></li>
+			<li><a href="/tags.html">Tags</a></li>
+			<li><a href="/categories.html">Categories</a></li>
+			<li class="divider"></li>		
+		    </ul>
+		</li>
+		
+	      
+          </ul>
+          <form class="navbar-search pull-right" action="">
+            <input type="text" class="search-query span2" placeholder="Search">
+          </form>
+          
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+   
+    <div class="container">
+      <div class="content">
+        {{ content }}
+      </div>
+      <footer>
+        <p>&copy; {{ site.author.name }} 2012 
+        </p>
+      </footer>
+    </div> <!-- /container -->
+    <!-- javascript ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->	
+    <script src="{{ ASSET_PATH }}/js/jquery/jquery-1.7.2.js"></script>	
+    <script src="{{ ASSET_PATH }}/js/google-code-prettify/prettify.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-transition.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-alert.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-modal.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-scrollspy.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-tab.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-tooltip.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-popover.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-button.js"></script>
+    <script src="{{ ASSET_PATH }}/js/bootstrap/bootstrap-collapse.js"></script>
+    <script src="{{ ASSET_PATH }}/bootstrap/bootstrap-carousel.js"></script>
+    <script src="{{ ASSET_PATH }}/bootstrap/bootstrap-typeahead.js"></script>
+    {% include JB/analytics %}    
+</body>
+</html>

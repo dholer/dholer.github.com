@@ -1,0 +1,412 @@
+set nocompatible
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+"set laststatus=2 " Enables the status line at the bottom of Vim
+"set statusline=%{GitBranchInfoString()}
+
+set laststatus=2
+set statusline=%{GitBranch()}
+
+""""""""""""""""""""""""""""""
+" Tag list (ctags)
+""""""""""""""""""""""""""""""
+let Tlist_Ctags_Cmd = 'ctags'
+let Tlist_Show_One_File = 1            "不同时显示多个文件的tag，只显示当前文件的
+let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist窗口 
+map <silent> <F9> :TlistToggle<cr> 
+
+
+set tags=tags;
+set autochdir
+
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+
+
+"set smarttab  
+"set tabstop=4  
+"set shiftwidth=4  
+"set expandtab 
+	
+au BufRead,BufNewFile *.js set syntax=jquery
+
+"配色方案
+colo liveme
+
+" 字体、字号
+set guifont=Courier\ New:h13
+
+" 编码设置
+set encoding=utf-8
+set langmenu=zh_CN.UTF-8
+language message zh_CN.UTF-8
+set fileencodings=utf-8
+set fileencoding=utf-8
+
+"设置文件格式为UNIX格式
+set ffs=unix,dos,mac
+set ff=unix
+
+"编码设置
+set enc=utf-8
+set fencs=utf-8
+
+"设置菜单语言
+set langmenu=zh_CN.UTF-8
+
+"导入删除菜单脚本，删除乱码的菜单
+source $VIMRUNTIME/delmenu.vim
+
+"导入正常的菜单脚本
+source $VIMRUNTIME/menu.vim
+
+"设置提示信息语言
+language messages zh_CN.utf-8
+
+"字体设置
+set guifont=Monaco:h12:cANSI
+
+"语法高亮
+set syntax=on
+
+"自动缩进
+set autoindent
+
+"C语言方式缩进
+set cindent
+
+"智能缩进
+set smartindent
+
+"统一缩进为4
+set softtabstop=4
+set shiftwidth=4
+
+"默认窗口大小
+set lines=30 columns=82
+
+"自动换行
+"set wrap
+
+"整词换行
+set linebreak
+
+"显示行号
+set number
+
+"高亮显示匹配的括号
+set showmatch
+
+"搜索逐字符高亮和实时搜索
+set hlsearch
+set incsearch
+
+"匹配括号高亮的时间（单位是十分之一秒）
+set matchtime=5
+
+"显示括号配对情况
+set showmatch
+
+"代码折叠
+"set fdm=indent
+
+"选择代码折叠类型
+set foldmethod=syntax
+
+"禁止自动折叠
+set foldlevel=100
+
+"命令行（在状态行下）的高度，默认为1，这里是2
+set cmdheight=2
+
+"历史记录数
+set history=1000
+
+"侦测文件类型
+filetype on
+
+"为特定文件类型载入相关缩进格式
+filetype indent on
+
+"为特定的文件类型载入对应的插件
+filetype plugin on
+filetype plugin indent on
+
+"不与vi兼容
+set nocp
+
+"vim目录树插件
+map <F10> :NERDTreeToggle<CR>
+
+"保存全局变量
+set viminfo+=!
+
+"带有如下符号的单词不要被换行分割
+set iskeyword+=_,$,@,%,#,-
+
+"字符间插入的像素行数目
+set linespace=0
+
+"增强模式中的命令行自动完成操作
+set wildmenu
+
+"PHP语法提示
+autocmd FileType php set omnifunc=phpcomplete
+
+"禁止生成临时文件
+set nobackup
+set noswapfile
+
+"设置退格键可用
+set backspace=2
+
+"快捷键自定义
+map <C-s> :w<CR>
+imap <C-s> <C-o>:w<CR>
+
+"隐藏工具栏，可用快捷键F2切换
+set guioptions-=T
+map <silent> <F2> :if &guioptions =~# 'T' <Bar>
+\set guioptions-=T <Bar>
+\else <Bar>
+\set guioptions+=T <Bar>
+\endif<CR>
+
+"能够漂亮地显示.NFO文件
+set encoding=utf-8
+function! SetFileEncodings(encodings)
+let b:myfileencodingsbak=&fileencodings
+let &fileencodings=a:encodings
+endfunction
+function! RestoreFileEncodings()
+let &fileencodings=b:myfileencodingsbak
+unlet b:myfileencodingsbak
+endfunction
+au BufReadPre *.nfo call SetFileEncodings('cp437')|set ambiwidth=single
+au BufReadPost *.nfo call RestoreFileEncodings()
+
+"F5编译和运行C程序，F6编译和运行C++程序
+"C的编译和运行
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+exec "w"
+exec "!gcc -Wall % -o %<"
+exec "! ./%<"
+endfunc
+
+"C++的编译和运行
+map <F6> :call CompileRunGpp()<CR>
+func! CompileRunGpp()
+exec "w"
+exec "!g++ -Wall % -o %<"
+exec "! ./%<"
+endfunc
+
+"Gvim标签定制
+set guitablabel=%{ShortTabLabel()}
+function ShortTabLabel ()
+let bufnrlist = tabpagebuflist (v:lnum)
+let label = bufname (bufnrlist[tabpagewinnr (v:lnum) -1])
+let filename = fnamemodify (label, ":t")
+return filename
+endfunction
+
+"######### 一键保存和编译 ######### "
+" 编译C源文件
+func! CompileGcc()
+exec "w"
+let compilecmd="!gcc -Wall -std=c99 "
+let compileflag="-o %<"
+exec compilecmd." % ".compileflag
+endfunc
+
+" 编译C++源文件
+func! CompileCpp()
+exec "w"
+let compilecmd="!g++ -Wall "
+let compileflag="-o %<"
+exec compilecmd." % ".compileflag
+endfunc
+
+" 编译&链接Go源文件
+func! CompileGo()
+exec "w"
+exec "!8g %"
+exec "!8l -o %<.exe %<.8″
+endfunc
+
+" 编译Haskell源文件
+func! CompileHaskell()
+exec "w"
+let compilecmd="!ghc –make "
+let compileflag="-o %<"
+exec compilecmd." % ".compileflag
+endfunc
+
+" 编译Java源文件
+func! CompileJava()
+exec "w"
+exec "!javac %"
+endfunc
+
+" 编译C#源文件
+func! CompileCs()
+exec "w"
+exec "!csc %"
+endfunc
+
+" 编译Gas源文件
+func! CompileGas()
+exec "w"
+exec "!gcc -Wall -ggdb -o %< %"
+endfunc
+
+" 运行Shell源文件
+func! RunShell()
+exec "w"
+exec "!sh %"
+endfunc
+
+" 运行Lua源文件
+func! RunLua()
+exec "w"
+exec "!lua %"
+endfunc
+
+" 运行Perl源文件
+func! RunPerl()
+exec "w"
+exec "!perl %"
+endfunc
+
+" 运行Python源文件
+func! RunPython()
+exec "w"
+exec "!python %"
+endfunc
+
+" 运行Ruby源文件
+func! RunRuby()
+exec "w"
+exec "!ruby %"
+endfunc
+
+
+"根据文件类型自动选择相应的编译函数
+func! CompileCode()
+exec "w"
+if &filetype == "c"
+exec "call CompileGcc()"
+elseif &filetype == "cpp"
+exec "call CompileCpp()"
+elseif &filetype == "go"
+exec "call CompileGo()"
+elseif &filetype == "haskell"
+exec "call CompileHaskell()"
+elseif &filetype == "java"
+exec "call CompileJava()"
+elseif &filetype == "cs"
+exec "call CompileCs()"
+elseif &filetype == "asm"
+exec "call CompileGas()"
+elseif &filetype == "sh"
+exec "call RunShell()"
+elseif &filetype == "lua"
+exec "call RunLua()"
+elseif &filetype == "perl"
+exec "call RunPerl()"
+elseif &filetype == "python"
+exec "call RunPython()"
+elseif &filetype == "ruby"
+exec "call RunRuby()"
+endif
+endfunc
+
+"运行可执行文件
+func! RunResult()
+exec "w"
+if &filetype == "c"
+exec "! %<"
+elseif &filetype == "cpp"
+exec "! %<"
+elseif &filetype == "go"
+exec "! %<"
+elseif &filetype == "haskell"
+exec "! %<"
+elseif &filetype == "java"
+exec "!java %<"
+elseif &filetype == "cs"
+exec "! %<"
+elseif &filetype == "asm"
+exec "! %<"
+elseif &filetype == "sh"
+exec "!sh %<.sh"
+elseif &filetype == "lua"
+exec "!lua %<.lua"
+elseif &filetype == "perl"
+exec "!perl %<.pl"
+elseif &filetype == "python"
+exec "!python %<.py"
+elseif &filetype == "ruby"
+exec "!ruby %<.rb"
+endif
+endfunc
+
+"md 插入头部
+map <F4> :call ADDT()<CR>
+function ADDT()
+    call setline(1,'---')
+    call setline(2,'layout: ')
+    call setline(3,'title: ')
+    call setline(4,'---')
+endf
+"""""""""""""""""""""""""""""""""""""
+""Python Configure
+
+"MiniBufExplorer
+"let g:miniBufExplMapWindowNavVim = 1 
+"let g:miniBufExplMapWindowNavArrows = 1 
+"let g:miniBufExplMapCTabSwitchBufs = 1 
+"let g:miniBufExplModSelTarget = 1 
+
+"Omnicompletion
+filetype plugin on
+let g:pydiction_location = 'D:/Dholer/local/Vim/vimfiles/ftplugin/pydiction/complete-dict'
+let g:pydiction_menu_height = 20
+
+
+function CheckPythonSyntax() 
+    let mp = &makeprg 
+    let ef = &errorformat 
+    let exeFile = expand("%:t") 
+    setlocal makeprg=python\ -u 
+    set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m 
+    silent make % 
+    copen 
+    let &makeprg     = mp 
+    let &errorformat = ef 
+endfunction
+
+autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+autocmd BufRead *.py nmap <F5> :!python %<CR>
+autocmd BufRead *.py nmap <F6> :make<CR>
+"autocmd BufRead *.py copen "如果是py文件，则同时打开编译信息窗口
+
+
+"打开浏览文件窗口，F3
+map <F3> :browse confirm e<CR>
+"一键保存文件。在插入模式和正常模式F4都起作用
+imap <F4> <ESC>:w<CR>
+"插入模式
+map <F4> :w<CR>
+"按1加[], 实例：array index，然后光标定位在i上面，按1，变成：array[index]
+nmap 1 hxi[<ESC>ea]
+"按2加(), 实例：function，输入后，按2，变成：function()，同时光标定位在()内
+nmap 2 a()<ESC>i
+
+
+
